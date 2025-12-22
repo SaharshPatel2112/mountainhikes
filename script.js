@@ -1,4 +1,5 @@
 // Mobile Menu
+
 function toggleMenu() {
   document.getElementById("navLinks").classList.toggle("active");
 }
@@ -74,6 +75,21 @@ const auth = getAuth();
 
 const provider = new GoogleAuthProvider();
 
+window.toggleMenu = function () {
+  const nav = document.getElementById("navLinks");
+  nav.classList.toggle("active");
+};
+
+window.handleAuth = function () {
+  if (!auth.currentUser) {
+    signInWithPopup(auth, provider)
+      .then((result) => console.log("Success"))
+      .catch((error) => console.error(error));
+  } else {
+    signOut(auth);
+  }
+};
+
 const authBtn = document.getElementById("authBtn");
 
 // Login process
@@ -93,7 +109,6 @@ window.handleAuth = () => {
   }
 };
 
-
 // logged in UI
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -103,4 +118,16 @@ onAuthStateChanged(auth, (user) => {
     authBtn.innerText = "Login";
     authBtn.style.background = "#1a73e8";
   }
+});
+
+const navLinksItems = document.querySelectorAll(".nav-links a");
+
+navLinksItems.forEach((link) => {
+  link.addEventListener("click", () => {
+    const nav = document.getElementById("navLinks");
+
+    if (nav.classList.contains("active")) {
+      nav.classList.remove("active");
+    }
+  });
 });
