@@ -3,7 +3,7 @@ function toggleMenu() {
   document.getElementById("navLinks").classList.toggle("active");
 }
 
-// Search Filtering 
+// Search Filtering
 document.getElementById("trekSearch").addEventListener("input", function (e) {
   const term = e.target.value.toLowerCase();
   const cards = document.querySelectorAll(".trek-card");
@@ -48,17 +48,59 @@ trekForm.addEventListener("submit", function (e) {
     });
 });
 
-// Placeholder for Auth
-let isLoggedIn = false;
-function handleAuth() {
-  isLoggedIn = !isLoggedIn;
-  const btn = document.getElementById("authBtn");
-  if (isLoggedIn) {
-    btn.innerText = "Logout";
-    btn.style.background = "#e74c3c";
-    alert("Logged in successfully (Google Auth Placeholder)");
+// Firebase modules
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signOut,
+  onAuthStateChanged,
+} from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCDefeAGp_ylIlb4xRKOU7ah3b3jMralKA",
+  authDomain: "mountainhikes-1234.firebaseapp.com",
+  projectId: "mountainhikes-1234",
+  storageBucket: "mountainhikes-1234.firebasestorage.app",
+  messagingSenderId: "324450320560",
+  appId: "1:324450320560:web:e1ee27b3e85ec2e7fb3b75",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth();
+
+const provider = new GoogleAuthProvider();
+
+const authBtn = document.getElementById("authBtn");
+
+// Login process
+window.handleAuth = () => {
+  if (!auth.currentUser) {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log("Logged in:", result.user);
+      })
+      .catch((error) => {
+        console.error("Login Error:", error);
+      });
   } else {
-    btn.innerText = "Login";
-    btn.style.background = "#1a73e8";
+    signOut(auth).then(() => {
+      console.log("Logged out");
+    });
   }
-}
+};
+
+
+// logged in UI
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    authBtn.innerText = `${user.displayName.split(" ")[0]} (Logout)`;
+    authBtn.style.background = "#de6666ff";
+  } else {
+    authBtn.innerText = "Login";
+    authBtn.style.background = "#1a73e8";
+  }
+});
