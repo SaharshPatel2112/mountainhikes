@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mountainhikes | Adventure Simplified</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">Mountain<span>hikes</span></div>
+
+      <div class="search-container">
+        <div class="search-pill">
+          <div class="search-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#9aa0a6"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+          <input
+            type="text"
+            id="trekSearch"
+            placeholder="Search treks (e.g. Kedarkantha)..."
+          />
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#">Home</a></li>
+          <li><a href="#treks">Treks</a></li>
+          <li><a href="#enquiry">Contact</a></li>
+          <li>
+            <button class="login-btn" id="authBtn" onclick="handleAuth()">
+              Login
+            </button>
+          </li>
+        </ul>
+        <div class="menu-icon" onclick="toggleMenu()">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-content">
+        <h1>The Mountains Are Calling</h1>
+        <p>Experience trekking like never before with India's safest guides.</p>
+      </div>
+    </header>
+
+    <section id="treks" class="container">
+      <h2 class="section-title">Explore Featured Treks</h2>
+      <div class="trek-grid" id="trekGrid">
+        <div class="trek-card">
+          <img src="images/brahmatal.jpg" alt="Trek" />
+          <h3>Brahmatal Trek</h3>
+          <p>Uttarakhand | 5 Days</p>
+        </div>
+        <div class="trek-card">
+          <img src="images/kedarkantha.jpg" alt="Trek" />
+          <h3>Kedarkantha</h3>
+          <p>Uttarakhand | 6 Days</p>
+        </div>
+        <div class="trek-card">
+          <img src="images/hampta pass.jfif" alt="Trek" />
+          <h3>Hampta Pass</h3>
+          <p>Himachal | 5 Days</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container video-section">
+      <h2 class="section-title">Trail Experiences</h2>
+      <div class="video-grid">
+        <div class="video-wrapper">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/HJ8qXZ8QjIY?si=Cj2AV3D5UKMDk_aw"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="video-wrapper">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/mutkHyrQmIQ?si=fGgqVqEAS9GIp-av"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="enquiry" class="enquiry-area">
+      <div class="form-card">
+        <h2>Plan Your Trek</h2>
+        <form id="trekForm">
+          <input type="text" name="name" placeholder="Full Name" required />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            required
+          />
+          <input
+            type="tel"
+            name="mobile"
+            placeholder="10-Digit Mobile Number"
+            pattern="[0-9]{10}"
+            title="Please enter exactly 10 digits"
+            required
+          />
+          <select name="trek" required>
+            <option value="" disabled selected>Choose a Trek</option>
+            <option value="Roopkund">Roopkund</option>
+            <option value="Kedarkantha">Kedarkantha</option>
+            <option value="Hampta Pass">Hampta Pass</option>
+          </select>
+          <textarea name="message" placeholder="Message" rows="3"></textarea>
+          <button type="submit" id="submitBtn">Send Enquiry</button>
+        </form>
+        <p id="responseMsg"></p>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Mountainhikes. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
