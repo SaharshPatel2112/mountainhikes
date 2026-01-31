@@ -59,6 +59,52 @@ body {
   padding: 0 15px;
   transition: 0.2s;
 }
+/* Search Results Dropdown */
+.search-container {
+  position: relative; /* Essential for absolute positioning of results */
+}
+
+.search-results-dropdown {
+  position: absolute;
+  top: 100%; /* Sits exactly below the search pill */
+  left: 0;
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-top: 5px;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 2000;
+  display: none; /* Hidden by default */
+}
+
+.result-item {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.2s;
+}
+
+.result-item:hover {
+  background-color: #f8f9fa;
+}
+
+.result-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.result-item span {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
 .search-pill:hover,
 .search-pill:focus-within {
   box-shadow: 0 1px 6px rgba(32, 33, 36, 0.2);
@@ -97,6 +143,97 @@ body {
   cursor: pointer;
 }
 
+.hover-link {
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.hover-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #1a73e8;
+  transition: width 0.3s ease;
+}
+
+.hover-link:hover::after {
+  width: 100%;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 10px 0;
+  border-radius: 8px;
+  z-index: 1001;
+  border: 1px solid #eee;
+}
+
+.dropdown-menu li {
+  padding: 0;
+}
+
+.dropdown-menu li a {
+  padding: 10px 20px;
+  display: block;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #f1f3f4;
+  color: #1a73e8;
+}
+
+@media (min-width: 769px) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+    animation: fadeIn 0.3s ease;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .dropdown-menu {
+    position: static;
+    display: none;
+    box-shadow: none;
+    background: #f8f9fa;
+    width: 100%;
+    border: none;
+    padding-left: 20px;
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: block;
+  }
+}
+
 /* Mobile Menu */
 .menu-icon {
   display: none;
@@ -113,7 +250,8 @@ body {
 
 .hero {
   height: 60vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("images/adventure.jpg");
   background-size: cover;
   background-position: center;
@@ -164,14 +302,15 @@ body {
 /* Form */
 .enquiry-area {
   background: #f8f9fa;
-  padding: 60px 5%;
+  padding: 20px 5%;
 }
 .form-card {
+  text-align: center;
   max-width: 500px;
   margin: 0 auto;
   background: #fff;
-  padding: 30px;
-  border-radius: 8px;
+  padding: 32px;
+  border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 form input,
