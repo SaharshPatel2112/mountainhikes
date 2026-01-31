@@ -80,32 +80,32 @@ window.toggleMenu = function () {
   nav.classList.toggle("active");
 };
 
+// Login process
+
 window.handleAuth = function () {
   if (!auth.currentUser) {
     signInWithPopup(auth, provider)
       .then((result) => console.log("Success"))
       .catch((error) => console.error(error));
   } else {
-    signOut(auth);
-  }
-};
+    const confirmLogout = confirm(
+      "Are you sure you want to logout from Mountainhikes?",
+    );
 
-const authBtn = document.getElementById("authBtn");
+    if (confirmLogout) {
+      signOut(auth)
+        .then(() => {
+          console.log("User logged out");
 
-// Login process
-window.handleAuth = () => {
-  if (!auth.currentUser) {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        console.log("Logged in:", result.user);
-      })
-      .catch((error) => {
-        console.error("Login Error:", error);
-      });
-  } else {
-    signOut(auth).then(() => {
-      console.log("Logged out");
-    });
+          const nav = document.getElementById("navLinks");
+          if (nav.classList.contains("active")) {
+            nav.classList.remove("active");
+          }
+        })
+        .catch((error) => {
+          console.error("Logout Error:", error);
+        });
+    }
   }
 };
 
@@ -130,4 +130,70 @@ navLinksItems.forEach((link) => {
       nav.classList.remove("active");
     }
   });
+});
+
+const allLinks = document.querySelectorAll(".nav-links a, .dropdown-menu a");
+
+allLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    const nav = document.getElementById("navLinks");
+
+    if (nav.classList.contains("active")) {
+      nav.classList.remove("active");
+    }
+
+    if (
+      window.innerWidth <= 768 &&
+      link.parentElement.classList.contains("dropdown")
+    ) {
+      e.preventDefault();
+      link.parentElement.classList.toggle("active");
+    }
+  });
+});
+
+// Data for search (You can expand this list)
+const trekData = [
+    { name: "Brahmatal Trek", url: "treks/brahmatal.html", img: "images/brahmatal.jpg" },
+    { name: "Kedarkantha Trek", url: "treks/kedarkantha.html", img: "images/kedarkantha.jpg" },
+    { name: "Hampta Pass", url: "treks/hampta-pass.html", img: "images/hampta-pass.jfif" },
+    { name: "Roopkund Trek", url: "treks/roopkund.html", img: "images/roopkund.jpg" }
+];
+
+const searchInput = document.getElementById('trekSearch');
+const resultsDropdown = document.getElementById('searchResults');
+
+searchInput.addEventListener('input', function() {
+    const term = this.value.toLowerCase();
+    resultsDropdown.innerHTML = ''; // Clear previous results
+
+    if (term.length > 0) {
+        const filtered = trekData.filter(trek => trek.name.toLowerCase().includes(term));
+
+        if (filtered.length > 0) {
+            resultsDropdown.style.display = 'block';
+            filtered.forEach(trek => {
+                const div = document.createElement('div');
+                div.classList.add('result-item');
+                div.innerHTML = `
+                    <img src="${trek.img}" alt="${trek.name}">
+                    <span>${trek.name}</span>
+                `;
+                div.onclick = () => window.location.href = trek.name.toLowerCase().includes('brahmatal') ? 'treks/brahmatal.html' : trek.url; 
+                // Adjust logic to point to correct URL
+                resultsDropdown.appendChild(div);
+            });
+        } else {
+            resultsDropdown.style.display = 'none';
+        }
+    } else {
+        resultsDropdown.style.display = 'none';
+    }
+});
+
+// Close dropdown if clicked outside
+window.addEventListener('click', (e) => {
+    if (!document.querySelector('.search-container').contains(e.target)) {
+        resultsDropdown.style.display = 'none';
+    }
 });
