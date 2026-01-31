@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kedarkantha Trek | Mountainhikes</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="trek-style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo" onclick="window.location.href = '../index.html'">
+        Mountain<span>hikes</span>
+      </div>
+      <div class="nav-right">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="../index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="../index.html#treks">Treks <small>▼</small></a>
+            <ul class="dropdown-menu">
+              <li><a href="brahmatal.html">Brahmatal Trek</a></li>
+              <li><a href="kedarkantha.html">Kedarkantha Trek</a></li>
+              <li><a href="hampta-pass.html">Hampta Pass</a></li>
+              <li><a href="roopkund.html">Roopkund Trek</a></li>
+            </ul>
+          </li>
+          <li><a href="../index.html#enquiry">Contact</a></li>
+        </ul>
+        <div class="menu-icon" onclick="toggleMenu()">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </div>
+    </nav>
+
+    <header
+      class="trek-hero"
+      style="background-image: url(&quot;../images/kedarkantha.jpg&quot;)"
+    >
+      <h1>Kedarkantha Trek</h1>
+      <p>The best winter trek in the Himalayas</p>
+    </header>
+
+    <div class="trek-content container">
+      <div class="main-info">
+        <section class="itinerary">
+          <h2>Trek Itinerary</h2>
+          <div class="day">
+            <strong>Day 1 :</strong> <b>Drive from Dehradun to Kotgaon</b><br />
+            <small>
+              <b>Drive distance:</b> 195 km | <b>Drive duration:</b> 10-11 hr<br />
+              Start your adventure with a scenic drive from Dehradun to Kotgaon,
+              the base camp for the Kedarkantha trek. Enjoy the picturesque
+              views along the way.
+            </small>
+          </div>
+          <div class="day">
+            <strong>Day 2 :</strong> <b>Trek from Kotgaon to Khujaai</b>
+            <br />
+            <small>
+              <b>Trek distance:</b> 5.3 km | <b>Trek duration:</b> 5 hours
+            </small>
+          </div>
+          <div class="day">
+            <strong>Day 3 :</strong> <b>Trek from Khujaai to Bhoja Dhadi</b>
+            <br />
+            <small>
+              <b>Trek distance:</b> 3 km | <b>Trek duration:</b> 3-4 hours
+            </small>
+          </div>
+          <div class="day">
+            <strong>Day 4 :</strong>
+            <b>Trek from Bhoja Dhadi to Khujaai via Kedarkantha Summit</b>
+            <br />
+            <small>
+              <b>Trek distance:</b> 9 km | <b>Trek duration:</b> 7-8 hours
+            </small>
+          </div>
+          <div class="day">
+            <strong>Day 5 :</strong> <b>Trek from Khujaai to Kotgaon</b>
+            <br />
+            <small>
+              <b>Trek distance:</b> 5.3 km | <b>Trek duration:</b> 4-5 hours
+            </small>
+          </div>
+          <div class="day">
+            <strong>Day 6 :</strong> <b>Drive back from Kotgaon to Dehradun</b>
+            <br />
+            <small>
+              <b>Drive distance:</b> 195 km | <b>Drive duration:</b> 10-11 hr
+            </small>
+          </div>
+        </section>
+
+        <section class="gallery">
+          <h2>Trek Photos</h2>
+          <div class="photo-grid">
+            <img src="../images/kedarkantha-1.webp" alt="Kedarkantha View 1" />
+            <img src="../images/kedarkantha-2.webp" alt="Kedarkantha View 2" />
+          </div>
+        </section>
+      </div>
+
+      <aside class="booking-sidebar">
+        <div class="booking-card">
+          <h3>Trek Fee:</h3>
+          <br />
+          <div class="fee-section">
+            <div class="trek-fee"><h3>₹11,450</h3></div>
+            <div class="fee-tax">
+              <div>
+                <p>
+                  + 5% GST <br />
+                  + ₹180 Trek Insurance <br />
+                  + ₹2,800 for transport to and from basecamp
+                </p>
+              </div>
+            </div>
+          </div>
+          <p>Includes : Guide, Meals, Tents</p>
+          <p>
+            <b>Optional Additions:</b> <br />
+            ₹750 Indiahikes Shield view <br />
+            ₹1,600 Backpack Offloading
+          </p>
+          <button
+            class="book-btn"
+            onclick="location.href = '../index.html#enquiry'"
+          >
+            Book Now
+          </button>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Mountainhikes. Trek with the Experts.</p>
+    </footer>
+
+    <script type="module" src="../script.js"></script>
+  </body>
+</html>

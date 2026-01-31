@@ -1,0 +1,175 @@
+body {
+  background-color: #fdfdfd;
+  font-size: 16px;
+}
+
+.trek-hero {
+  height: 450px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 0 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  background-blend-mode: overlay;
+}
+
+.trek-hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 10px;
+  text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.trek-hero p {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.trek-content {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.main-info {
+  flex: 2;
+}
+
+.booking-sidebar {
+  flex: 1;
+}
+
+.itinerary h2,
+.gallery h2 {
+  margin-bottom: 25px;
+  font-weight: 600;
+  color: #202124;
+  border-left: 4px solid #1a73e8;
+  padding-left: 15px;
+}
+
+.itinerary .day {
+  background: #ffffff;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  transition: transform 0.2s ease;
+}
+
+.itinerary .day:hover {
+  transform: translateX(10px);
+  border-color: #1a73e8;
+}
+
+.itinerary .day strong {
+  color: #1a73e8;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.gallery {
+  margin-top: 50px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.photo-grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.02);
+}
+
+
+.booking-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 100px;
+  border: 1px solid #eee;
+}
+
+.booking-card h3 {
+  font-size: 1.8rem;
+  color: #202124;
+  margin-bottom: 5px;
+}
+
+.booking-card p {
+  color: #5f6368;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.book-btn {
+  background: #2ecc71;
+  color: white;
+  border: none;
+  padding: 16px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.book-btn:hover {
+  background: #27ae60;
+  box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+.fee-section {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.trek-fee {
+    flex: 1;
+}
+
+.trek-fee-tax {
+    flex: 2;
+
+}
+@media (max-width: 768px) {
+  .trek-content {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  .trek-hero {
+    height: 300px;
+  }
+
+  .booking-sidebar {
+    order: -1;
+    width: 100%;
+  }
+
+  .booking-card {
+    position: relative;
+    top: 0;
+    margin-bottom: 30px;
+  }
+}
