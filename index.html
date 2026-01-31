@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -35,16 +35,28 @@
           <input
             type="text"
             id="trekSearch"
-            placeholder="Search treks (e.g. Kedarkantha)..."
+            placeholder="Search treks..."
+            autocomplete="off"
           />
         </div>
+        <div id="searchResults" class="search-results-dropdown"></div>
       </div>
 
       <div class="nav-right">
         <ul class="nav-links" id="navLinks">
-          <li><a href="#">Home</a></li>
-          <li><a href="#treks">Treks</a></li>
-          <li><a href="#enquiry">Contact</a></li>
+          <li><a href="#" class="hover-link">Home</a></li>
+
+          <li class="dropdown">
+            <a href="#treks" class="hover-link">Treks <small>▼</small></a>
+            <ul class="dropdown-menu">
+              <li><a href="treks/brahmatal.html">Brahmatal Trek</a></li>
+              <li><a href="treks/kedarkantha.html">Kedarkantha Trek</a></li>
+              <li><a href="treks/hampta-pass.html">Hampta Pass</a></li>
+              <li><a href="treks/roopkund.html">Roopkund Trek</a></li>
+            </ul>
+          </li>
+
+          <li><a href="#enquiry" class="hover-link">Contact</a></li>
           <li>
             <button class="login-btn" id="authBtn" onclick="handleAuth()">
               Login
@@ -80,9 +92,14 @@
           <p>Uttarakhand | 6 Days</p>
         </div>
         <div class="trek-card">
-          <img src="images/hampta pass.jfif" alt="Trek" />
+          <img src="images/hampta pass.webp" alt="Trek" />
           <h3>Hampta Pass</h3>
           <p>Himachal | 5 Days</p>
+        </div>
+        <div class="trek-card">
+          <img src="images/roopkund.avif" alt="Trek" />
+          <h3>Roopkund Trek</h3>
+          <p>Uttarakhand | 9 Days</p>
         </div>
       </div>
     </section>
@@ -97,7 +114,15 @@
             src="https://www.youtube.com/embed/HJ8qXZ8QjIY?si=Cj2AV3D5UKMDk_aw"
             title="YouTube video player"
             frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
@@ -109,7 +134,15 @@
             src="https://www.youtube.com/embed/mutkHyrQmIQ?si=fGgqVqEAS9GIp-av"
             title="YouTube video player"
             frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
@@ -119,7 +152,8 @@
 
     <section id="enquiry" class="enquiry-area">
       <div class="form-card">
-        <h2>Plan Your Trek</h2>
+        <h2>Plan Your Trek </h2>
+        <br>
         <form id="trekForm">
           <input type="text" name="name" placeholder="Full Name" required />
           <input
@@ -136,7 +170,7 @@
             title="Please enter exactly 10 digits"
             required
           />
-          <select name="trek" required>
+          <select name="trek" title="Choose a Trek" required>
             <option value="" disabled selected>Choose a Trek</option>
             <option value="Brahmatal">Brahmatal</option>
             <option value="Kedarkantha">Kedarkantha</option>
@@ -151,7 +185,7 @@
     </section>
 
     <footer>
-      <p>&copy; 2025 Mountainhikes. All rights reserved.</p>
+      <p>&copy; 2026 Mountainhikes.</p>
     </footer>
 
     <script type="module" src="script.js"></script>
