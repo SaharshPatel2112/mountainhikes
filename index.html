@@ -47,7 +47,7 @@
           <li><a href="#" class="hover-link">Home</a></li>
 
           <li class="dropdown">
-            <a href="#treks" class="hover-link">Treks <small>▼</small></a>
+            <a href="#" class="mobile-toggle">Treks <small>▼</small></a>
             <ul class="dropdown-menu">
               <li><a href="treks/brahmatal.html">Brahmatal Trek</a></li>
               <li><a href="treks/kedarkantha.html">Kedarkantha Trek</a></li>
@@ -81,23 +81,35 @@
     <section id="treks" class="container">
       <h2 class="section-title">Explore Featured Treks</h2>
       <div class="trek-grid" id="trekGrid">
-        <div class="trek-card">
-          <img src="images/brahmatal.jpg" alt="Trek" />
+        <div
+          class="trek-card"
+          onclick="window.location.href = 'treks/brahmatal.html'"
+        >
+          <img src="images/brahmatal.jpg" alt="Brahmatal Trek" />
           <h3>Brahmatal Trek</h3>
           <p>Uttarakhand | 5 Days</p>
         </div>
-        <div class="trek-card">
-          <img src="images/kedarkantha.jpg" alt="Trek" />
+        <div
+          class="trek-card"
+          onclick="window.location.href = 'treks/kedarkantha.html'"
+        >
+          <img src="images/kedarkantha.jpg" alt="Kedarkantha Trek" />
           <h3>Kedarkantha</h3>
           <p>Uttarakhand | 6 Days</p>
         </div>
-        <div class="trek-card">
-          <img src="images/hampta pass.webp" alt="Trek" />
+        <div
+          class="trek-card"
+          onclick="window.location.href = 'treks/hampta-pass.html'"
+        >
+          <img src="images/hampta pass.webp" alt="Hampta Pass Trek" />
           <h3>Hampta Pass</h3>
           <p>Himachal | 5 Days</p>
         </div>
-        <div class="trek-card">
-          <img src="images/roopkund.avif" alt="Trek" />
+        <div
+          class="trek-card"
+          onclick="window.location.href = 'treks/roopkund.html'"
+        >
+          <img src="images/roopkund.avif" alt="Roopkund Trek" />
           <h3>Roopkund Trek</h3>
           <p>Uttarakhand | 9 Days</p>
         </div>
@@ -152,8 +164,8 @@
 
     <section id="enquiry" class="enquiry-area">
       <div class="form-card">
-        <h2>Plan Your Trek </h2>
-        <br>
+        <h2>Plan Your Trek</h2>
+        <br />
         <form id="trekForm">
           <input type="text" name="name" placeholder="Full Name" required />
           <input
