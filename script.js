@@ -183,3 +183,27 @@ window.addEventListener("click", (e) => {
     resultsDropdown.style.display = "none";
   }
 });
+
+window.addEventListener('click', (e) => {
+    const navLinks = document.getElementById("navLinks");
+    const menuIcon = document.querySelector(".menu-icon");
+    const searchContainer = document.querySelector('.search-container');
+    const resultsDropdown = document.getElementById('searchResults');
+
+    if (navLinks.classList.contains("active")) {
+        if (!navLinks.contains(e.target) && !menuIcon.contains(e.target)) {
+            navLinks.classList.remove("active");
+            
+            const openSubmenu = document.querySelector('.dropdown.open-submenu');
+            if (openSubmenu) {
+                openSubmenu.classList.remove('open-submenu');
+            }
+        }
+    }
+
+    if (resultsDropdown && resultsDropdown.style.display === 'block') {
+        if (searchContainer && !searchContainer.contains(e.target)) {
+            resultsDropdown.style.display = 'none';
+        }
+    }
+});
