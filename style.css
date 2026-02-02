@@ -229,7 +229,8 @@ body {
 /* HERO SECTION */
 .hero {
   height: 60vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("images/adventure.jpg");
   background-size: cover;
   background-position: center;
@@ -254,7 +255,9 @@ body {
   overflow: hidden;
   padding-bottom: 8px;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -438,4 +441,13 @@ form textarea {
   .dropdown.open-submenu .dropdown-menu {
     display: block;
   }
+  
+  .menu-icon,
+  .logo,
+  .trek-card {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
 }
